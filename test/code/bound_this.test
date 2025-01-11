@@ -1,0 +1,39 @@
+<?php
+
+class BoundThis
+{
+    private $testVar = "hello";
+
+    function test()
+    {
+        echo $this->testVar;
+    }
+}
+-----
+Block#1
+    Stmt_Class
+        name: LITERAL('BoundThis')
+        stmts: Block#2
+    Terminal_Return
+
+Block#2
+    Stmt_Property
+        flags: private
+        declaredType: mixed
+        name: LITERAL('testVar')
+        defaultVar: LITERAL('hello')
+        defaultBlock: Block#3
+    Stmt_ClassMethod<'test'>
+        flags: public
+
+Block#3
+
+Function 'BoundThis::test': mixed
+Block#1
+    Expr_PropertyFetch
+        var: this<$this>
+        name: LITERAL('testVar')
+        result: Var#1
+    Terminal_Echo
+        expr: Var#1
+    Terminal_Return

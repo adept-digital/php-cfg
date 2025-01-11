@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace PHPCfg\Operand;
 
+use PHPCfg\Operand;
+
 class BoundVariable extends Variable
 {
     public const SCOPE_GLOBAL = 1;
